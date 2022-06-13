@@ -81,7 +81,14 @@ async def on_message(message):
       await economy.mine_check(message)
     
   if msg.startswith("s$help"):
-    await help(message)
+    tmp = msg.split(" ")
+    if len(tmp) == 1:
+      return await helpcommand(message)
+    elif tmp[1] == "commands":
+      return await helpcommand(message)
+    else:
+      return await message.channel.send(f"Unknown command `{tmp[1]}`")
+    
   
   await bot.process_commands(message)
 
@@ -220,14 +227,16 @@ async def backup(file:str):
     with open("backup.json","w",encoding = "utf-8") as backup_w:
       json.dump(data,backup_w)
 
-async def help(message):
+async def helpcommand(message):
   with open("help.json","r",encoding = "utf-8") as r:
     helpj = json.load(r)
   info = discord.Embed(title = "指令列表")
   info.set_thumbnail(url = bot.user.avatar_url)
-  info.add_field(name = "> **一般功能**",value = helpj["GeneralFunctions"],inline = False)
-  info.add_field(name = "> **奇怪的功能**",value = helpj["OtherFunctions"],inline = False)
-  info.add_field(name = "> **經濟功能**",value = helpj["EconomyFunctions"],inline = False)
+  info.add_field(name = "> **一般功能**",value = helpj["General"],inline = False)
+  info.add_field(name = "> **經濟功能**",value = helpj["Economy"],inline = False)
+  info.add_field(name = "> **音樂播放功能**",value = helpj["Music"],inline = False)
+  info.add_field(name = "> **其他功能**",value = helpj["Other"],inline = False)
+  
   await message.reply(embed = info)
 
 async def check_member():

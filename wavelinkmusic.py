@@ -208,7 +208,7 @@ class wavelinkmusic(commands.Cog):
     sq.add_field(name = "Mode",value = mode,inline = False)    
     await ctx.send(embed = sq)
 
-  @cog_ext.cog_slash(name = "playrightnow",description = "強制播放這首歌(請尊重別人)", guild_ids = guild_id)
+  @cog_ext.cog_slash(name = "playnow",description = "強制播放這首歌(請尊重別人)", guild_ids = guild_id)
   async def playrightnow(self,ctx,song:str):
     if not ctx.voice_client:
       return await ctx.send("[Error] I am not in a voice channel.", hidden = True)
