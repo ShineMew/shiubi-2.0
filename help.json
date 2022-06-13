@@ -1,0 +1,5 @@
+{
+  "GeneralFunctions":"```\n/avatar     取得某人的頭像圖片\n/vote       建立一個投票, 每個選項用空格隔開\n/rand       隨機選擇一至多個選項, 各選項用空格隔開\n/status     取得上線成員的狀態\n```",
+  "OtherFunctions":"```\n/lire       二維數據簡易分析, 每組二維資料(x,y)用空格隔開\n/cb         回傳一組元素之所有二元組合, 每個元素用空格隔開\n/embed      建立一個Embed(嵌入式訊息), 用法有點麻煩\n```",
+  "EconomyFunctions":"```\n/account    查看或建立帳戶\n/shop       查看或建立商店\n/shop_add   新增或編輯商店品項\n/remit      匯錢給其他玩家\n/sell       將物品直接換成錢\n/buy        在其他玩家的商店購買物品\n```"
+}
